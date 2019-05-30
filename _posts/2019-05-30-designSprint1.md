@@ -3,9 +3,6 @@ layout: post
 title: About Design Sprint-1
 ---
 
-# Design Sprint - 1
-<br>
-
 ### What is the Design Sprint  
 ![Design sprint](https://www.gv.com/sprint/img/sprint-diagram.png)
 - The Design Sprint is a proven methodology for solving problems through designing, prototyping, and testing ideas with users.
