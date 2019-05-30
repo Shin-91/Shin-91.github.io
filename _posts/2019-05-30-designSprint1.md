@@ -31,6 +31,7 @@ title: About Design Sprint-1
       3. Creating a slide template
 
  [![라이트닝 토크](http://img.youtube.com/vi/aJXoX-Oaq8k/0.jpg)](https://youtu.be/aJXoX-Oaq8k?t=0s)
+ 
  ***
 
 
