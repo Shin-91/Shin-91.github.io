@@ -8,6 +8,7 @@ title: About Design Sprint-1
 - The Design Sprint is a proven methodology for solving problems through designing, prototyping, and testing ideas with users.
 
 - 가설을 개발하고, 아이디어를 프로토타입화 하며, 실제 환경에서 가능한 적은 투자로 신속하게 테스트할 수 있게 해주는 도구
+
 ***
 ### Design Sprint has ***6 phases***
 
