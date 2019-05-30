@@ -26,9 +26,9 @@ title: About Design Sprint-1
        *   컨퍼런스에나 포럼에서 열리는 짧은 프레젠테이션  
         *  Each Lightnig Talk should last *10 to 15 minites* 
    *  **Derections**
-      *  1. Determine topics
-      *  2.  Speakers for each topics explain about their topics
-      *  3. Creating a slide template
+      1. Determine topics
+      2.  Speakers for each topics explain about their topics
+      3. Creating a slide template
 
  [![라이트닝 토크](http://img.youtube.com/vi/aJXoX-Oaq8k/0.jpg)](https://youtu.be/aJXoX-Oaq8k?t=0s)
  ***
