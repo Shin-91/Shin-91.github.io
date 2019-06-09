@@ -10,4 +10,4 @@ Want to be a Developer.
 
 ### Contact me
 
-[sdj910401@gmail.com](mailto:sdj910401@gmail.com)
+[sdj910401@gmail.com](sdj910401@gmail.com)
