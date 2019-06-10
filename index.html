@@ -1,18 +1,46 @@
 ---
 layout: default
 ---
-
 <div class="posts">
   {% for post in site.posts %}
     <article class="post">
 
-      <h1><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h1>
+      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2> 
+       
+        <div class="date">
+            Written on {{ post.date | date: "%B %e, %Y" }}
+        </div>
 
-      <div class="entry">
-        {{ post.excerpt }}
-      </div>
-
-      <a href="{{ site.baseurl }}{{ post.url }}" class="read-more">Read More</a>
     </article>
   {% endfor %}
 </div>
+
+<form action="/search.html" method="get">
+  <label for="search-box">Search</label>
+  <input type="text" id="search-box" name="query">
+  <input type="submit" value="search">
+</form>
+
+if (searchTerm) {
+  document.getElementById('search-box').setAttribute('value', searchTerm);
+
+  var idx = lunr(function () {
+            this.field('id');
+            this.field('title', { boost: 10 });
+            this.field('author');
+            this.field('content');
+            for (var key in window.store) { 
+                this.add({
+                    'id': key,
+                    'title': window.store[key].title,
+                    'author': window.store[key].author,
+                    'content': window.store[key].content
+                });
+
+                
+            }
+        });
+
+        var results = idx.search(searchTerm); // Get lunr to perform a search
+        displaySearchResults(results, window.store); // We'll write this in the next section
+}
