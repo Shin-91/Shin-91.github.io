@@ -56,4 +56,5 @@ if (searchTerm) {
         displaySearchResults(results, window.store); // We'll write this in the next section
 }
 
-
+}	
+})();
