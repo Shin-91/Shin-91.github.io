@@ -13,7 +13,7 @@
 
       searchResults.innerHTML = appendString;
     } else {
-      searchResults.innerHTML = '<li>No results found</li>';
+      searchResults.innerHTML = '<li>검색어에 대한 내용이 없습니다. 다른 검색어로 찾아보시는 것은 어떨까요?</li>';
     }
   }
 
@@ -30,31 +30,44 @@
     }
   }
 
+  function trimmerEnKo(token) {
+    return token
+      .replace(/^[^\w가-힣]+/, '')
+      .replace(/[^\w가-힣]+$/, '');
+  };
+
   var searchTerm = getQueryVariable('query');
 
-if (searchTerm) {
-  document.getElementById('search-box').setAttribute('value', searchTerm);
+  if (searchTerm) {
+    document.getElementById('search-box').setAttribute("value", searchTerm);
 
-  var idx = lunr(function () {
-            this.field('id');
-            this.field('title', { boost: 10 });
-            this.field('author');
-            this.field('content');
-            for (var key in window.store) { 
-                this.add({
-                    'id': key,
-                    'title': window.store[key].title,
-                    'author': window.store[key].author,
-                    'content': window.store[key].content
-                });
+    // Initalize lunr with the fields it will be searching on. I've given title
+    // a boost of 10 to indicate matches on this field are more important.
+    var idx = lunr(function () {
+      this.pipeline.reset();
+      this.pipeline.add(
+        trimmerEnKo,
+        lunr.stopWordFilter,
+        lunr.stemmer
+      );
+      this.field('id');
+      this.field('title', { boost: 10 });
+      this.field('author');
+      this.field('category');
+      this.field('content');
+    });
 
-                
-            }
-        });
+    for (var key in window.store) { // Add the data to lunr
+      idx.add({
+        'id': key,
+        'title': window.store[key].title,
+        'author': window.store[key].author,
+        'category': window.store[key].category,
+        'content': window.store[key].content
+      });
 
-        var results = idx.search(searchTerm); // Get lunr to perform a search
-        displaySearchResults(results, window.store); // We'll write this in the next section
-}
-
-
+      var results = idx.search(searchTerm); // Get lunr to perform a search
+      displaySearchResults(results, window.store); // We'll write this in the next section
+    }
+  }
 })();
