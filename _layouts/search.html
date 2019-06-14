@@ -3,7 +3,19 @@ layout: default
 ---
 
 <div class="search">
-	{{ content }}
+	{% for post in search-results %}
+    <article class="post">
+
+      <h2><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2> 
+       
+        <div class="date">
+            Written on {{ post.date | date: "%B %e, %Y" }}
+        </div>
+
+    </article>
+  {% endfor %}
+	
+	<!--{{ content }}-->
 </div>
 
 <script src="../js/lunr.min.js"></script>
