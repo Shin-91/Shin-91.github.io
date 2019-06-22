@@ -1,6 +1,7 @@
 ---
 layout: post
 title: BOJ 1267 - 핸드폰 요금
+use_math: true
 ---
 
 [핸드폰 요금](https://www.acmicpc.net/problem/1267)  
