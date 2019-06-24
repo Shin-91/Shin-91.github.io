@@ -51,8 +51,8 @@ $$\sum_{i=1}^N Y \; 와 \;  \sum_{i=1}^N M$$
 (`Y`와 `M`이 같을 경우 `Y`와 `M`을 한칸의 공백을 두고 출력한다, ex. `Y M 45`)
 
 
-  
 ```cpp
+
 #include <cstdio>
 #include <iostream>
 #include <vector>
